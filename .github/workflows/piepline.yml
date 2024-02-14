@@ -9,9 +9,9 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "main","changelog" ]
+    branches: [ "artifact"]
   pull_request:
-    branches: [ "main","changelog" ]
+    branches: [ "artifact" ]
 
 jobs:
   build:
@@ -50,4 +50,10 @@ jobs:
     #
     # - name: Build with Gradle 8.5
     #   run: gradle build
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4.3.0
+      with:
+        name: greeting-jar
+        path: build/libs
 
